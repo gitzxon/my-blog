@@ -146,7 +146,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://gitzxon.github.io/2023/01/23/test-post-1/">
+    <link itemprop="mainEntityOfPage" href="http://gitzxon.github.io/2023/01/23/hexo-next-%E5%90%AF%E5%8A%A8%E4%B9%B1%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -160,7 +160,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/01/23/test-post-1/" class="post-title-link" itemprop="url">test-post-1</a>
+            <a href="/2023/01/23/hexo-next-%E5%90%AF%E5%8A%A8%E4%B9%B1%E7%A0%81/" class="post-title-link" itemprop="url">hexo + next 显示乱码</a>
         </h2>
 
         <div class="post-meta">
@@ -169,8 +169,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-01-23 00:28:08" itemprop="dateCreated datePublished" datetime="2023-01-23T00:28:08+08:00">2023-01-23</time>
+              <time title="Created: 2023-01-23 00:53:46 / Modified: 01:04:11" itemprop="dateCreated datePublished" datetime="2023-01-23T00:53:46+08:00">2023-01-23</time>
             </span>
 
           
@@ -184,64 +185,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-      
-    </div>
+          <h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>关键字：<br>hexo，next，启动，访问，乱码，hexo-renderer-swig</p>
+<h1 id="hexo-next-显示乱码"><a href="#hexo-next-显示乱码" class="headerlink" title="hexo + next 显示乱码"></a>hexo + next 显示乱码</h1><p>在使用 hexo + next 搭建静态网站的过程中，发现启动成功，但是访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 的时候显示乱码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">extends</span> <span class="string">&#x27;_layout.swig&#x27;</span> %&#125; &#123;% <span class="keyword">import</span> <span class="string">&#x27;_macro/post.swig&#x27;</span> <span class="keyword">as</span> post_template %&#125; &#123;% <span class="keyword">import</span> <span class="string">&#x27;_macro/sidebar.swig&#x27;</span> <span class="keyword">as</span> sidebar_template %&#125; &#123;% block title %&#125;&#123;&#123; config.<span class="property">title</span> &#125;&#125;&#123;% <span class="keyword">if</span> theme.<span class="property">index_with_subtitle</span> and config.<span class="property">subtitle</span> %&#125; - &#123;&#123;config.<span class="property">subtitle</span> &#125;&#125;&#123;% endif %&#125;&#123;% endblock %&#125; &#123;% block page_class %&#125; &#123;% <span class="keyword">if</span> <span class="title function_">is_home</span>() %&#125;page-home&#123;% endif -%&#125; &#123;% endblock %&#125; &#123;% block content %&#125;</span><br><span class="line">&#123;% <span class="keyword">for</span> post <span class="keyword">in</span> page.<span class="property">posts</span> %&#125; &#123;&#123; post_template.<span class="title function_">render</span>(post, <span class="literal">true</span>) &#125;&#125; &#123;% endfor %&#125;</span><br><span class="line">&#123;% include <span class="string">&#x27;_partials/pagination.swig&#x27;</span> %&#125; &#123;% endblock %&#125; &#123;% block sidebar %&#125; &#123;&#123; sidebar_template.<span class="title function_">render</span>(<span class="literal">false</span>) &#125;&#125; &#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<p>原因是 hexo 在 5.0 之后把 swig 给删除了，需要自己手动安装，执行下面命令：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-renderer-swig</span><br></pre></td></tr></table></figure>
+<p>重启后正常展示网页了。</p>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://gitzxon.github.io/2023/01/23/post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="弄马哥 nomag">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="弄马哥 nomag">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/01/23/post/" class="post-title-link" itemprop="url">post</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-01-23 00:10:52" itemprop="dateCreated datePublished" datetime="2023-01-23T00:10:52+08:00">2023-01-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
       
     </div>
 
@@ -322,7 +272,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
