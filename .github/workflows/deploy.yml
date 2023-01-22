@@ -1,4 +1,4 @@
-name: CI
+name: 博客自动发布
 
 on:
   push:
