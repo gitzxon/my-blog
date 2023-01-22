@@ -8,7 +8,7 @@ on:
 env:
   GIT_USER: gitzxon
   GIT_EMAIL: mailtoliang@qq.com
-  THEME_REPO: gitzxon/hexo-theme-concise
+  THEME_REPO: gitzxon/hexo-theme-next
   THEME_BRANCH: master
   DEPLOY_REPO: gitzxon/gitzxon.github.io
   DEPLOY_BRANCH: gh-pages
