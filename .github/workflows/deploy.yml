@@ -57,7 +57,9 @@ jobs:
           git config --global user.name $GIT_USER
           git config --global user.email $GIT_EMAIL
           # cp _config.next.yml themes/next/_config.yml
+          echo "start print config for next >>>>>>"
           cat themes/next/_config.yml
+          echo "end print config for next <<<<<<"
 
       - name: Install dependencies
         run: |
